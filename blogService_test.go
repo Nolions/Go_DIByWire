@@ -6,8 +6,7 @@ import (
 )
 
 func TestPrint(t *testing.T) {
-	db := NewDataBase()
-	serv := NewBlogService(db)
+	serv := InitializeBlogService()
 
 	expected := BlogPost("this first blog post")
 	actual := serv.Print()
