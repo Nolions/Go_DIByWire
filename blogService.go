@@ -1,13 +1,16 @@
 package di
 
 type BlogService struct {
+	db Database
 }
 
-func NewBlogService() BlogService {
-	return BlogService{}
+func NewBlogService(database Database) BlogService {
+	return BlogService{
+		db: database,
+	}
 }
 
 func (p *BlogService) Print() BlogPost {
-	db := NewDataBase()
-	return db.GetBlog()
+	//db := NewDataBase()
+	return p.db.GetBlog()
 }
